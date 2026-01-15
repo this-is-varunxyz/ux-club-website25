@@ -5,28 +5,28 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 export default function AfterEvent() {
 
-     const textRef = useRef(null);
+    //      const textRef = useRef(null);
 
-  useEffect(() => {
-    gsap.fromTo(
-      textRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: textRef.current,
-          start: "top 80%",
-          end: "+=230",
-          scrub: 1,
-        },
-      }
-    );
-  }, []);
-    
+    //   useEffect(() => {
+    //     gsap.fromTo(
+    //       textRef.current,
+    //       { opacity: 0, y: 30 },
+    //       {
+    //         opacity: 1,
+    //         y: 0,
+    //         scrollTrigger: {
+    //           trigger: textRef.current,
+    //           start: "top 80%",
+    //           end: "+=230",
+    //           scrub: 1,
+    //         },
+    //       }
+    //     );
+    //   }, []);
+
     return (
         <>
             <div
@@ -48,22 +48,22 @@ export default function AfterEvent() {
                     (About Our Club)
                 </motion.h1>
                 <div className='flex justify-between bg-black lg:text-8xl text-white font-sans font-bold tracking-normal mt-5 cursor-pointer'
-                    // initial={{ opacity: 0, y: 40 }}
-                    // whileInView={{ opacity: 1, y: 0 }}
-                    // viewport={{ once: false, amount: 0.3 }}
-                    // transition={{ duration: 0.8, ease: "easeInOut" }}
+                // initial={{ opacity: 0, y: 40 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // viewport={{ once: false, amount: 0.3 }}
+                // transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
 
                     <h1 className='flex justify-center font-[Neue] lg:text-8xl text-xl items-center gap-x-3'>
-                        <ScrollReveal as="span">
-                           See Our Past Events
-                        </ScrollReveal>
-                        <span 
-                        className="hover:scale-75 transition-ease-in-out duration-300">
-                           
-<svg
+                        {/* <ScrollReveal as="span"> */}
+                        See Our Past Events
+                        {/* </ScrollReveal> */}
+                        <span
+                            className="hover:scale-75 transition-ease-in-out duration-300">
 
- ref={textRef}
+                            <svg
+
+
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 fill="none"
@@ -76,15 +76,15 @@ export default function AfterEvent() {
                                 <path d="M13 5H19V11" />
                                 <path d="M19 5L5 19" />
                             </svg>
-                            
+
 
                         </span>
 
                     </h1>
                     <h1>
-                        <ScrollReveal as="span">
-                        0_19
-                        </ScrollReveal>
+                        {/* <ScrollReveal as="span"> */}
+                            0_19
+                        {/* </ScrollReveal> */}
                     </h1>
                 </div>
                 <div
@@ -98,10 +98,10 @@ export default function AfterEvent() {
                     <div className="hidden lg:block">
                         <h1 className="lg:flex gap-x-20 tracking-wide font-semibold lg:justify-center lg:items-center">
                             <span>
-                                
-                                <ScrollReveal as="span">
+
+                                {/* <ScrollReveal as="span"> */}
                                     (About uxclub)
-                                </ScrollReveal></span>
+                                {/* </ScrollReveal> */}</span>
 
                             <span className="lg:text-5xl text-sm leading-tight font-bold font-[Neue] tracking-normal">
                                 <ScrollReveal as="span"  >
@@ -121,22 +121,23 @@ export default function AfterEvent() {
 
 
                     {/* Mobile layout ke liye */}
-                    <motion.div className='lg:hidden'
-                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}>
+                    <div className='lg:hidden'>
+                        {/* //  initial={{ opacity: 0, y: 40 }}
+                    // whileInView={{ opacity: 1, y: 0 }}
+                    // viewport={{ once: false, amount: 0.3 }}
+                    // transition={{ duration: 0.8, ease: "easeInOut" }} */}
+
                         <p className='tracking-normal font-[Neue] text-sm mb-2'>
                             (About_uxclub)
                         </p>
                         <p className="text-[14px] text-justify leading-none font-medium font-[Neue] tracking-normal mt-4">
-                            
+
                             UXClub focuses on building UX/UI design, product thinking, and digital creativity skills, bringing together designers, developers, and innovators through workshops, design sprints, hackathons, and speaker sessions to promote collaboration, innovation, and real-world problem solving on campus.
-                            
+
                         </p>
-                    </motion.div>
+                    </div>
                 </div>
-                <motion.div className="bg-black flex justify-between mt-6 lg:pt-10 pt-5 text-white"
+                <div className="bg-black flex justify-between mt-6 lg:pt-10 pt-5 text-white"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
@@ -144,14 +145,14 @@ export default function AfterEvent() {
                 >
                     <div className='hidden tracking-tight leading-tight lg:block space-y-5 font-sans w-full font-bold  lg:w-[60%]'>
                         <h1 className="lg:pl-[20vw] text-base lg:pr-10">
-                            <ScrollReveal as="span">
-                            Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
-                            </ScrollReveal>
+                            {/* <ScrollReveal as="span"> */}
+                                Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
+                            {/* </ScrollReveal> */}
                         </h1>
                         <h1 className="lg:pl-[20vw] text-base lg:pr-10">
-                            <ScrollReveal as="span">
-                           UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
-                            </ScrollReveal>
+                            {/* <ScrollReveal as="span"> */}
+                                UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
+                            {/* </ScrollReveal> */}
                         </h1>
                     </div>
 
@@ -298,7 +299,7 @@ export default function AfterEvent() {
                             UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
                         </p>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* smaller devices ke liye */}
                 <motion.div className="lg:hidden mt-8"
