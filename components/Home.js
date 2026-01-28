@@ -17,8 +17,8 @@ export default function Home({show}) {
           // transition={{duration: 1.1, delay:0.7, ease: "easeInOut" }}
           // style={{ transformOrigin: "center" }}
         >
-          <h1 className="font-[Socilo] lg:text-[28vw] lg:pl-5 xl:text-[30vw] sm:text-[28vw] md:text-[28vw] text-[28vw] leading-none tracking-wide lg:pt-24 sm:pt-18 md:pt-15 pt-10 text-center ">
-            UX Club
+          <h1 className="font-[Socilo] lg:text-[20vw] lg:pl-5 xl:text-[20vw] sm:text-[19vw] md:text-[19vw] pl-2 text-[19vw] leading-none tracking-wide lg:pt-24 sm:pt-17 md:pt-15 pt-10 text-center ">
+            UXClub
           </h1>
         </div>
 

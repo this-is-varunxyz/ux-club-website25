@@ -1,11 +1,10 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "../../components/features/team/components/TeamPage.css";
-
 import teamImg from "../../components/features/team/assets/image.jpg";
-
+import Members from "../card-stack/imagess/page";
 const teams = [
   { name: "Tech Team", image: teamImg, link: "/team/tech" },
   { name: "PR Team", image: teamImg, link: "/team/pr" },
@@ -18,6 +17,9 @@ const teams = [
 const TeamPage = () => {
   const percentRef = useRef(null);
   const titleBarRef = useRef(null);
+  const [showMembers, setShowMembers] = useState(false);
+
+  const handleToggle = () => setShowMembers(!showMembers);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +28,7 @@ const TeamPage = () => {
         document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent =
         docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
-
+      
       if (percentRef.current) {
         percentRef.current.textContent = `${scrollPercent
           .toString()
@@ -47,41 +49,52 @@ const TeamPage = () => {
   }, []);
 
   return (
-    <div className="team-container">
+    <div className="team-container ">
       <div className="top-box">
         <div className="header">
-          <span className="header-start font-[Neue] text-base">MEET THE TEAM</span>
-          <span ref={percentRef} className="scroll-percent font-[Neue] text-base">
+          <span className="header-start font-[Neue] text-xs">MEET THE TEAM</span>
+          <span ref={percentRef} className="scroll-percent font-[Neue] text-xs">
             00%
           </span>
-          <span className="header-end font-[Neue] text-base">MENU ●</span>
+          <span className="header-end font-[Neue] text-xs">MENU ●</span>
         </div>
 
-        <div className="team-title  font-[Neue]" ref={titleBarRef}>
-          <h1>THE TEAM</h1>
-          <div className="counter font-[Neue]">0_6</div>
-        </div>
+        <div className="view-controls">
+          <span
+            onClick={() => setShowMembers(false)}
+            className={`font-[Neue] text-base cursor-pointer ${!showMembers ? "" : "faded"
+              }`}
+          >
+            TEAM
+          </span>
 
-        <div className="view-controls  ">
-          <span>
-            TEAM/
-            <Link href="/card-stack/imagess">
-            <span className="faded font-[Neue]">MEMBERS</span>
-            </Link>
+          <span className="mx-1 text-base">/</span>
+
+          <span
+            onClick={() => setShowMembers(true)}
+            className={`font-[Neue] text-base cursor-pointer ${showMembers ? "" : "faded"
+              }`}
+          >
+            MEMBERS
           </span>
         </div>
+
       </div>
 
-      <div className="team-grid">
-        {teams.map((team, index) => (
-          <Link href={team.link} key={index} className="team-card">
-            <h4 className="team-name">{team.name}</h4>
-            <div className="placeholder" style={{ position: 'relative' }}>
-              <Image src={team.image} alt={team.name} className="team-image" fill sizes="(max-width: 800px) 50vw, 30vw" style={{ objectFit: 'cover' }} />
-            </div>
-          </Link>
-        ))}
-      </div>
+      {showMembers ? (
+        <Members  className=''/>
+      ) : (
+        <div className="team-grid ">
+          {teams.map((team, index) => (
+            <Link href={team.link} key={index} className="team-card ">
+              <h4 className="team-name">{team.name}</h4>
+              <div className="placeholder " style={{ position: 'relative' }}>
+                <Image src={team.image} alt={team.name} className="team-image" fill sizes="(max-width: 800px) 50vw, 30vw" style={{ objectFit: 'cover' }} />
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

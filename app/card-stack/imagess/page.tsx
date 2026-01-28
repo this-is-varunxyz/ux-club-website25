@@ -161,16 +161,24 @@ export default function ImagessPage() {
 
   return (
     <div
-      className="min-h-screen w-full flex flex-col items-center py-12 relative overflow-hidden"
-      style={{ background: '#eceae5' }}
+      className="min-h-screen w-full flex flex-col items-center mt-25 relative overflow-hidden"
+      style={{ background: '#000000' }}
     >
-      <h1 className="text-2xl font-bold mb-8">Members</h1>
+      <h1 className="text-2xl font-bold mb-8 text-white">Members</h1>
       
       {hoveredIdx !== null && (
         <div
-          className={`fixed z-50 pointer-events-none transition-opacity duration-300 ${
-            isTransitioning ? 'opacity-0' : 'opacity-100'
-          }`}
+          className={`fixed z-50 pointer-events-none
+  transition-all
+  ease-[cubic-bezier(0.16,1,0.3,1)]
+  will-change-transform will-change-opacity
+  duration-1000
+  ${
+    isTransitioning
+      ? 'opacity-0 duration-[1000ms] delay-300 translate-y-6 scale-[0.97]'
+      : 'opacity-100 duration-[400ms] delay-0 translate-y-0 scale-100'
+  }
+`}
           style={{
             left: mousePos.x + 20,
             top: mousePos.y - 80,
@@ -182,13 +190,13 @@ export default function ImagessPage() {
             <img
               src={items[hoveredIdx].img}
               alt={items[hoveredIdx].name}
-              className="w-72 h-72 object-cover rounded-lg shadow-2xl transition-transform duration-300 hover:scale-105"
+              className="w-72 h-72 object-cover rounded-lg shadow-2xl transition-transform duration-300 hover:scale-105 border-2 border-white border-opacity-20"
               style={{
-                background: '#fff',
-                filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))'
+                background: '#000',
+                filter: 'drop-shadow(0 10px 30px rgba(255,255,255,0.2))'
               }}
             />
-            <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-3 py-1 rounded-full text-2sm font-medium whitespace-nowrap">
+            <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-95 text-black px-4 py-2 rounded-full text-sm font-[Neue] font-semibold whitespace-nowrap shadow-lg">
               {items[hoveredIdx].name}
             </div>
           </div>
@@ -197,26 +205,33 @@ export default function ImagessPage() {
 
       <div className="w-full z-10">
         {items.map((item, idx) => (
-          <Link href="/card-stack/students">
+          
           <div
             key={idx}
-            className="w-full flex items-center justify-between px-3 py-3 transition-all duration-500 ease-out cursor-pointer group"
-            style={{ background: idx % 2 === 0 ? '#eceae5' : '#dddad1' }}
+            className="w-full flex items-center justify-between px-3 py-3  transition-all duration-500 ease-out cursor-pointer group"
+            style={{ background: idx % 2 === 0 ? '#000000' : '#0a0a0a' }}
             onMouseEnter={() => handleMouseEnter(idx)}
             onMouseLeave={handleMouseLeave}
           >
-            <span className="font-mono text-gray-700 transition-all duration-500 ease-out group-hover:text-white">
+            <span className=" lg:block hidden font-semibold font-[Neue]  text-white transition-all duration-500 ease-out group-hover:text-black">
               {String(idx + 1).padStart(3, '0')}
             </span>
-            <span className='lg:block hidden font-mono mx-[15rem] flex-1 text-left  font-semibold text-gray-700 transition-all duration-500 ease-out group-hover:text-white'>{item.team}</span>
+            <span className="lg:hidden font-[Neue] text-xs text-white transition-all duration-500 ease-out group-hover:text-black">
+              {String(idx + 1).padStart(3, '0')}
+            </span>
+            <span className='lg:block hidden font-semibold font-[Neue] mx-[15rem] flex-1 text-left  text-white transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
+            <span className='lg:hidden font-[Neue] mx-[2rem] flex-1 text-left  text-xs font-semibold text-white transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
             
-            <span className="mx-4 font-semibold transition-all duration-500 ease-out group-hover:text-white">
-              {item.name}
+            <span className="lg:block hidden font-[Neue] font-semibold text-white transition-all duration-500 ease-out group-hover:text-black">
+              {item.team}
+            </span>
+            <span className="lg:hidden text-xs font-[Neue] font-semibold text-white transition-all duration-500 ease-out group-hover:text-black">
+              {item.team}
             </span>
             
             {/* <div className="w-6 h-6 rounded-full bg-gray-300 transition-all duration-500 ease-out group-hover:bg-white opacity-60 group-hover:opacity-100"></div> */}
           </div>
-          </Link>
+         
         ))}
       </div>
 
@@ -229,17 +244,17 @@ export default function ImagessPage() {
           }
         }
         .group:hover {
-          background: #000 !important;
-          transform: translateX(8px);
+          background: #fff !important;
+          transform: translateX(0px);
         }
         
         .group {
-          border-left: 3px solid transparent;
+          
           transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .group:hover {
-          border-left-color: #fff;
+          border-left-color: #000;
         }
       `}</style>
     </div>

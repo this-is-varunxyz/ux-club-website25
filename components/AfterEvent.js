@@ -103,7 +103,6 @@ export default function AfterEvent() {
                             <span className="lg:text-3xl xl:text-4xl  text-sm leading-snug font-bold font-[Neue] tracking-normal ">
                                 <ScrollReveal as="span" stagger={0.02} delay={0.1} >
                                    Student-driven community for UX and design thinking.
-                                   
                                 </ScrollReveal>
                             </span>
                         </h1>

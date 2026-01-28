@@ -12,7 +12,7 @@ export default function UpcomingEvent() {
 
     return (
         <div className='overflow-x-hidden bg-black lg:space-y-20'>
-            <div className='bg-black min-h-fit w-full lg:flex justify-between px-4 py-5 space-y-6 lg:space-y-0 lg:gap-6 lg:px-6'>
+            <div className='bg-black min-h-fit w-full lg:flex justify-between px-4 xl:py-5 lg:py-5 md:py-5 py-2 space-y-6 lg:space-y-0 lg:gap-6 lg:px-6'>
                 <div   className='flex flex-col w-full lg:w-[42%]'>
                     <div className='bg-white lg:h-[581.475px] h-[50vh] w-full mx-auto relative'>
                         <Link href="/team">
