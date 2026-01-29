@@ -405,33 +405,33 @@ function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
 
 
       {/* Black Top Bar (Now Below Panel) */}
-      <div className="w-full bg-transparent mix-blend-difference text-[#eceae5] h-[60px] px-8 flex items-center justify-between text-sm uppercase tracking-wide z-50 relative">
+      <div className="w-full bg-transparent mix-blend-difference text-[#eceae5] h-[60px] px-8 flex items-center justify-between xl:text-sm lg:text-xs uppercase tracking-wide z-50 relative">
         {/* Left: Logo */}
-        <div className="font-bold text-lg tracking-tighter w-1/4">UX CLUB</div>
+        <div className="font-bold xl:text-lg lg:text-sm tracking-tighter w-1/7">UX CLUB</div>
 
         {/* Center-Left: Info */}
         <div className="flex items-center gap-12 w-1/4">
-            <span className="opacity-50">{time}</span>
+            <span className="opacity-50  xl:text-base lg:text-[14px]">{time}</span>
             <span className="font-semibold">BHOPAL , IN</span>
         </div>
 
         {/* Center: Scroll */}
         <div className="w-1/4 text-center">
-            <span className="font-[Neue] text-[#ECEAE5] font-semibold text-[15px]">
+            <span className="font-[Neue] text-[#ECEAE5] font-semibold lg:text-xs xl:text-[15px]">
                 {Math.round(scrollProgress).toString().padStart(2, '0')}%
             </span>
         </div>
 
         {/* Right: Navigation Links */}
-        <div className="flex items-center justify-end gap-10 w-1/4">
-          <div className="flex gap-6 text-[14px] font-semibold text-[#ECEAE5]">
-            <Link href="/" className="hover:text-white transition-colors"><span className=' px-1 text-[15px] text-[#838383]'>1.</span> Home</Link>
-            <Link href="/index" className="hover:text-white  transition-colors"><span className=' px-1 text-[15px] text-[#838383]'>2.</span> Index</Link>
+        <div className="flex items-center justify-end gap-10 w-1/2">
+          <div className="flex gap-6 xl:text-[14px] lg:text-[11px] font-semibold text-[#ECEAE5]">
+            <Link href="/" className="hover:text-white transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>1.</span> Home</Link>
+            <Link href="/index" className="hover:text-white  transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>2.</span> Index</Link>
             <button 
                 onClick={toggleMenu} 
                 className={`hover:text-white transition-colors ${isMenuOpen ? "text-[#ECEAE5]" : ""}`}
             >
-                <span className=' px-1 text-[15px] text-[#838383]'>3.</span> INFORMATION
+                <span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>3.</span> INFORMATION
             </button>
           </div>
           {/* Status Dot */}
